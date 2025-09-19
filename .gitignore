@@ -1,0 +1,28 @@
+# Node / tooling
+node_modules/
+.npm*
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# MacOS
+.DS_Store
+
+# Build artifacts
+scripts/train-target.js
+public/
+
+# Env / keys
+*.pem
+*.key
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Cache
+.cache/
+

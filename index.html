@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>LCS+E AR Experience</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./brand.css">
+
+  <style>
+    :root {
+      --color-white: #ffffff;
+      --color-black: #0b0f11;
+      --color-raisin-black: #2b2f36;
+      --color-bright-gray: #cfd8dc;
+      --color-chinese-silver: #bfc7cc;
+      --spacing-lg: 16px;
+      --spacing-xl: 32px;
+      --spacing-2xl: 28px;
+      --spacing-3xl: 48px;
+      --radius-lg: 12px;
+      --radius-xl: 24px;
+      --shadow-lg: 0 8px 24px rgba(3,10,18,0.6);
+      --transition-base: 180ms ease;
+      --tracking-tight: -0.02em;
+      --font-weight-medium: 500;
+      --font-weight-bold: 700;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Zen Kaku Gothic New', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, var(--color-black) 0%, var(--color-raisin-black) 100%);
+      color: var(--color-white);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: clamp(24px, 4vw, 48px);
+    }
+
+    .hero {
+      max-width: 960px;
+      width: 100%;
+      display: grid;
+      gap: clamp(24px, 4vw, 48px);
+      justify-items: center;
+    }
+
+    .logo {
+      width: clamp(96px, 12vw, 140px);
+      height: clamp(96px, 12vw, 140px);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: 0 6px 20px rgba(2,6,12,0.6);
+      transition: transform var(--transition-base), box-shadow var(--transition-base);
+    }
+
+    .logo img {
+      width: 70%;
+      height: 70%;
+      object-fit: contain;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 32px rgba(2,6,12,0.75);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.4rem, 6vw, 3.8rem);
+      font-weight: var(--font-weight-bold);
+      letter-spacing: var(--tracking-tight);
+    }
+
+    p.lede {
+      margin: 0;
+      max-width: 640px;
+      font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+      line-height: 1.6;
+      color: var(--color-bright-gray);
+    }
+
+    .cta {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .cta a {
+      display: inline-block;
+      padding: 14px 28px;
+      border-radius: var(--radius-xl);
+      text-decoration: none;
+      font-weight: var(--font-weight-medium);
+      letter-spacing: 0.01em;
+      transition: transform var(--transition-base), box-shadow var(--transition-base);
+    }
+
+    .cta-primary {
+      background: linear-gradient(135deg,#ffffff 0%, #e6e6e6 100%);
+      color: var(--color-black);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.45);
+    }
+
+    .cta-secondary {
+      background: rgba(255,255,255,0.08);
+      color: var(--color-white);
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .cta a:hover,
+    .cta a:focus-visible {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.55);
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      width: 100%;
+    }
+
+    .feature {
+      background: rgba(255,255,255,0.04);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 22px;
+      text-align: left;
+      color: var(--color-chinese-silver);
+      line-height: 1.5;
+    }
+
+    .feature h3 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      color: var(--color-white);
+      font-size: 1.05rem;
+      font-weight: var(--font-weight-medium);
+    }
+
+    .feature .icon {
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    figure {
+      margin: 0;
+      background: rgba(255,255,255,0.03);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255,255,255,0.05);
+      padding: 20px;
+    }
+
+    figure img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1);
+    }
+
+    figure figcaption {
+      margin-top: 12px;
+      font-size: 0.85rem;
+      color: var(--color-chinese-silver);
+    }
+
+    @media (max-width: 640px) {
+      .cta {
+        width: 100%;
+      }
+
+      .cta a {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="hero" role="main">
+    <div class="logo">
+      <img src="./assets/marker.png" alt="LCS+E Logo">
+    </div>
+    <div>
+      <h1>Lagree Street Sign AR Preview</h1>
+      <p class="lede">Launch the marker-based AR experience powered by Zappar to see the interactive sandwich board come to life with production-ready assets.</p>
+    </div>
+    <div class="cta">
+      <a class="cta-primary" href="./zappar.html">🚀 Launch Zappar Experience</a>
+      <a class="cta-secondary" href="./assets/marker.png" download>🖨️ Download Marker</a>
+    </div>
+    <section class="features" aria-label="Highlights">
+      <article class="feature">
+        <span class="icon">🧠</span>
+        <h3>Image Tracking</h3>
+        <p>Zappar image tracking now uses the `marker.zpt` target for robust marker detection.</p>
+      </article>
+      <article class="feature">
+        <span class="icon">🎨</span>
+        <h3>Lagree Styling</h3>
+        <p>Brand fonts and colors from the existing landing page keep the demo on brand.</p>
+      </article>
+      <article class="feature">
+        <span class="icon">📦</span>
+        <h3>Swap Ready</h3>
+        <p>Assets live in `/assets` so you can iterate on the GLB or replace the marker quickly.</p>
+      </article>
+    </section>
+    <figure>
+      <img src="./assets/marker.png" alt="Lagree marker preview">
+      <figcaption>Use this marker to trigger the AR content.</figcaption>
+    </figure>
+  </main>
+</body>
+</html>
