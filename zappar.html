@@ -157,7 +157,8 @@
       {
         "imports": {
           "three": "https://cdn.jsdelivr.net/npm/three@0.155.0/build/three.module.js",
-          "three/examples/jsm/loaders/GLTFLoader.js": "https://cdn.jsdelivr.net/npm/three@0.155.0/examples/jsm/loaders/GLTFLoader.js"
+          "three/examples/jsm/loaders/GLTFLoader.js": "https://cdn.jsdelivr.net/npm/three@0.155.0/examples/jsm/loaders/GLTFLoader.js",
+          "three/examples/jsm/loaders/DRACOLoader.js": "https://cdn.jsdelivr.net/npm/three@0.155.0/examples/jsm/loaders/DRACOLoader.js"
         }
       }
     </script>
@@ -165,6 +166,7 @@
     <script type="module">
       import * as THREE from 'three';
       import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+      import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
 
       window.THREE = THREE;
 
@@ -237,6 +239,9 @@
         anchorGroup.add(directional);
 
         const gltfLoader = new GLTFLoader();
+        const dracoLoader = new DRACOLoader();
+        dracoLoader.setDecoderPath('https://cdn.jsdelivr.net/npm/three@0.155.0/examples/jsm/libs/draco/');
+        gltfLoader.setDRACOLoader(dracoLoader);
         gltfLoader.load(
           './assets/lagree-sign.glb',
           (gltf) => {
