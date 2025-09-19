@@ -186,17 +186,7 @@
         console.info(`[zappar] ZapparThree ${ZapparThree.VERSION}`);
       }
 
-      const licenseKey = localStorage.getItem('zapparLicenseKey') || '';
-      if (!licenseKey) {
-        overlay.querySelector('p').insertAdjacentHTML('afterend', '<small style="display:block;margin-top:8px;color:rgba(235,242,248,0.7);">Tip: add a key via the dev console using <code>localStorage.setItem(\'zapparLicenseKey\', \'YOUR-KEY\')</code>.</small>');
-      } else {
-        try {
-          ZapparThree.setOptions({ licenseKey });
-          console.info('[zappar] license key applied');
-        } catch (err) {
-          console.warn('[zappar] failed to apply license key', err);
-        }
-      }
+      // If you're hosting on Zappar's domains, no license key is required.
 
       const canvas = document.getElementById('zappar-canvas');
       const overlay = document.getElementById('permission-overlay');
